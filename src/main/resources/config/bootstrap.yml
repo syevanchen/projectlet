@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: ${service.profile:#spring.profiles.active#}
+  application:
+    name: ${service.name:projectlet}
+  cloud:
+    config:
+      enabled: ${config.server.enabled:false}
+      uri: ${config.server.uri:http://ngcpconfig.service.consul:10184}  

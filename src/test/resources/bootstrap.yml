@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: ${service.profile:default}
+  application:
+    name: ${service.name:ngdatabdas}
+  cloud:
+    config:
+      enabled: ${config.server.enabled:true}
+      uri: ${config.server.uri:http://ngcpconfig.service.consul:10184}
+#junit test mode
+testMode: 1
+testData:
+  person_id: "21010519620523493X"
+  region_no: "210100"
+  hospital_no: "6880"
+  visit_no: "00000022020101"
+  insurance_id: "1002370254"

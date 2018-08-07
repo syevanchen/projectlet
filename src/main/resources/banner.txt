@@ -1,0 +1,3 @@
+project 1.0
+
+modify this banner in resources/banner.txt

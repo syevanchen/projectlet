@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "dwapi.url",
+    "type": "java.lang.String",
+    "description": "DwAPI server address"
+  },
+  {
+    "name": "dwapi.service",
+    "type": "java.lang.String",
+    "description": "DwAPI server service name"
+  },
+  {
+    "name": "dwapi.namespace",
+    "type": "java.lang.String",
+    "description": "DwAPI schema, HBase namespace"
+  },
+  {
+    "name": "feign.hystrix.enabled",
+    "type": "java.lang.Boolean",
+    "description": "If enable Hystrix"
+  },
+  {
+    "name": "hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds",
+    "type": "java.lang.Long",
+    "description": "Set timeout of Hystrix"
+  },
+  {
+    "name": "ribbon.ReadTimeout",
+    "type": "java.lang.Long",
+    "description": "Set read timeout of Ribbon"
+  },
+  {
+    "name": "ribbon.ConnectTimeout",
+    "type": "java.lang.Long",
+    "description": "Set connect timeout of Ribbon"
+  },
+  {
+    "name": "mgwcore.url",
+    "type": "java.lang.String",
+    "description": "FIXME!"
+  },
+  {
+    "name": "mgwcore.appid",
+    "type": "java.lang.String",
+    "description": "FIXME!"
+  }
+]}

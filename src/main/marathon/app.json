@@ -1,0 +1,65 @@
+{
+  "id": "/#project.artifactId#",
+  "cmd": null,
+  "cpus": 0.1,
+  "mem": 1024,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "#docker.image#",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 0,
+          "hostPort": 0,
+          "servicePort": 10010,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "log-driver",
+          "value": "fluentd"
+        },
+        {
+          "key": "log-opt",
+          "value": "tag=ngcp.file.#project.artifactId#"
+        }
+      ],
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "SERVICE_NAME": "#project.artifactId#",
+    "SERVICE_PROFILE": "#spring.profiles.active#",
+    "CONFIG_SERVER_URI": "http://ngcpconfig.service.consul:10184"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 60,
+      "maxConsecutiveFailures": 10,
+      "portIndex": 0,
+      "path": "/management/health",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10010,
+      "protocol": "tcp",
+      "name": "default",
+      "labels": {}
+    }
+  ]
+}

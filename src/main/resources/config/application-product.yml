@@ -1,0 +1,31 @@
+logging:
+    level:
+        com.neusoft.ngcp.projectlet: DEBUG
+
+spring:
+    profiles:
+        active: dev
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: false
+    cloud:
+        consul:
+            host: ${host:127.0.0.1}
+            port: 8500
+            discovery:
+               ip-address: ${host:127.0.0.1}
+               tags: profile=${spring.profiles.active}, version=#project.version#
+               healthCheckPath: ${management.context-path}/health
+               health-check-interval: 15s
+               prefer-ip-address: true
+               healthCheckCriticalTimeout: 40s
+
+management:
+    context-path: /management
+
+server:
+    port: ${port0:8080}
+
+# application:
